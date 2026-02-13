@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gift</title>
+    <style>
+        body {
+            text-align:center;
+            background:#ffccd5;
+            color:#8b0000;
+            font-family:Arial;
+        }
+        img {
+            width:350px;   /* increased size */
+            cursor:pointer;
+            margin-top:40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tap the gift box 15 times 🎁</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" onclick="tapGift()">
+    <h2 id="msg"></h2>
+
+    <script>
+        let count = 0;
+        function tapGift(){
+            count++;
+            if(count >= 15){
+                document.getElementById("msg").innerText = "I love you vavae ❤️";
+                setTimeout(() => {
+                    window.location.href="/music";
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
