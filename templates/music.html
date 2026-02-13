@@ -7,28 +7,97 @@
             text-align:center;
             background:#ffccd5;
             color:#8b0000;
-            font-family:Arial;
+            font-family:Arial, sans-serif;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+            overflow:hidden;
         }
+
+        .container {
+            background:white;
+            padding:60px;
+            border-radius:25px;
+            box-shadow:0 0 30px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            font-size:50px;
+            margin-bottom:20px;
+        }
+
         button {
-            padding:12px 25px;
-            font-size:18px;
+            margin-top:30px;
+            padding:18px 40px;
+            font-size:24px;
             background:#ff4d6d;
             color:white;
             border:none;
-            border-radius:10px;
+            border-radius:12px;
             cursor:pointer;
+        }
+
+        button:hover {
+            background:#e63956;
+        }
+
+        /* Floating icons */
+        .floating {
+            position:absolute;
+            bottom:-50px;
+            font-size:30px;
+            animation: floatUp 6s linear infinite;
+            opacity:0.8;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform:translateY(0);
+                opacity:0;
+            }
+            20% {
+                opacity:1;
+            }
+            100% {
+                transform:translateY(-110vh);
+                opacity:0;
+            }
         }
     </style>
 </head>
 <body>
+
+<div class="container">
     <h1>Play Our Song 🎶</h1>
 
     <audio controls autoplay>
         <source src="{{ url_for('static', filename='song.mp3') }}" type="audio/mpeg">
     </audio>
 
-    <p>(Song will play for 2 minutes)</p>
+    <br><br>
+    <button onclick="location.href='/final'">Next ➜</button>
+</div>
 
-    <button onclick="location.href='/final'">Next</button>
+<script>
+    const symbols = ["💖", "🎵", "💗", "🎶", "❤️"];
+
+    function createFloatingSymbol() {
+        const symbol = document.createElement("div");
+        symbol.classList.add("floating");
+        symbol.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        symbol.style.left = Math.random() * 100 + "vw";
+        symbol.style.animationDuration = (4 + Math.random() * 4) + "s";
+        document.body.appendChild(symbol);
+
+        setTimeout(() => {
+            symbol.remove();
+        }, 8000);
+    }
+
+    setInterval(createFloatingSymbol, 500);
+</script>
+
 </body>
 </html>
