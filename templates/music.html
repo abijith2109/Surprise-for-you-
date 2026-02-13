@@ -1,103 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Music</title>
+    <title>Music for You</title>
     <style>
         body {
-            text-align:center;
-            background:#ffccd5;
-            color:#8b0000;
-            font-family:Arial, sans-serif;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            margin:0;
-            overflow:hidden;
-        }
-
-        .container {
-            background:white;
-            padding:60px;
-            border-radius:25px;
-            box-shadow:0 0 30px rgba(0,0,0,0.25);
+            background: pink;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
 
         h1 {
-            font-size:50px;
-            margin-bottom:20px;
+            font-size: 3em;
+            color: #b3003c;
+            margin-bottom: 30px;
         }
 
-        button {
-            margin-top:30px;
-            padding:18px 40px;
-            font-size:24px;
-            background:#ff4d6d;
-            color:white;
-            border:none;
-            border-radius:12px;
-            cursor:pointer;
+        .symbols {
+            font-size: 50px;
+            animation: float 3s infinite alternate;
         }
 
-        button:hover {
-            background:#e63956;
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-20px); }
         }
 
-        /* Floating icons */
-        .floating {
-            position:absolute;
-            bottom:-50px;
-            font-size:30px;
-            animation: floatUp 6s linear infinite;
-            opacity:0.8;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform:translateY(0);
-                opacity:0;
-            }
-            20% {
-                opacity:1;
-            }
-            100% {
-                transform:translateY(-110vh);
-                opacity:0;
-            }
+        .next-btn {
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Play Our Song 🎶</h1>
+<h1>Listen to Our Song 🎵</h1>
 
-    <audio controls autoplay>
-        <source src="{{ url_for('static', filename='song.mp3') }}" type="audio/mpeg">
-    </audio>
+<div class="symbols">🎵 💖 🎶</div>
 
-    <br><br>
-    <button onclick="location.href='/final'">Next ➜</button>
-</div>
+<audio controls autoplay>
+    <source src="{{ url_for('static', filename='song.mp3') }}" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
 
-<script>
-    const symbols = ["💖", "🎵", "💗", "🎶", "❤️"];
-
-    function createFloatingSymbol() {
-        const symbol = document.createElement("div");
-        symbol.classList.add("floating");
-        symbol.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-        symbol.style.left = Math.random() * 100 + "vw";
-        symbol.style.animationDuration = (4 + Math.random() * 4) + "s";
-        document.body.appendChild(symbol);
-
-        setTimeout(() => {
-            symbol.remove();
-        }, 8000);
-    }
-
-    setInterval(createFloatingSymbol, 500);
-</script>
+<a href="/final" class="next-btn">Next</a>
 
 </body>
 </html>
