@@ -32,15 +32,11 @@ def hug():
 def kiss():
     return render_template("kiss.html")
 
-# Step 6: Music page
-@app.route("/music")
-def music():
-    return render_template("music.html")
-
-# Step 7: Final page
+# Step 6: Final page (you can put the music here)
 @app.route("/final")
 def final():
     return render_template("final.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
