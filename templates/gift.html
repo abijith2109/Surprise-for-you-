@@ -1,109 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gift</title>
+    <title>Gift for You</title>
     <style>
         body {
-            background:#ffccd5;
-            color:#8b0000;
-            font-family:Arial, sans-serif;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            margin:0;
-            text-align:center;
+            background: pink;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
 
         .container {
-            background:white;
-            padding:60px;
-            border-radius:25px;
-            box-shadow:0 0 30px rgba(0,0,0,0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h1 {
-            font-size:50px;
-            margin-bottom:20px;
+        .gift-box {
+            width: 220px;
+            height: 220px;
+            background: red;
+            position: relative;
+            cursor: pointer;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s;
         }
 
-        #counter {
-            font-size:30px;
-            margin-bottom:20px;
+        .gift-box:hover {
+            transform: scale(1.05);
         }
 
-        img {
-            width:350px;
-            cursor:pointer;
-            transition:transform 0.2s;
+        .gift-lid {
+            width: 240px;
+            height: 60px;
+            background: darkred;
+            position: absolute;
+            top: -50px;
+            left: -10px;
+            border-radius: 10px;
         }
 
-        img:active {
-            transform:scale(0.95);
+        .count {
+            font-size: 1.5em;
+            color: #b3003c;
+            margin-bottom: 20px;
         }
 
-        #message {
-            font-size:50px;
-            margin-top:25px;
-            display:none;
+        .message {
+            font-size: 3em;
+            color: #b3003c;
+            margin-top: 30px;
+            display: none;
             animation: zoomOut 1s ease forwards;
         }
 
         @keyframes zoomOut {
-            0% {
-                transform:scale(2);
-                opacity:0;
+            from {
+                transform: scale(1.5);
+                opacity: 0;
             }
-            100% {
-                transform:scale(1);
-                opacity:1;
+            to {
+                transform: scale(1);
+                opacity: 1;
             }
         }
 
-        button {
-            margin-top:30px;
-            padding:18px 40px;
-            font-size:24px;
-            background:#ff4d6d;
-            color:white;
-            border:none;
-            border-radius:12px;
-            cursor:pointer;
-            display:none;
-        }
-
-        button:hover {
-            background:#e63956;
+        .next-btn {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 1.3em;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            display: none;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Tap the gift box 🎁</h1>
-    <div id="counter">Taps remaining: 15</div>
+    <div class="count" id="count">Tap the gift 15 times</div>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" onclick="tapGift()">
+    <div class="gift-box" onclick="tapGift()">
+        <div class="gift-lid"></div>
+    </div>
 
-    <div id="message">I love you vavae 💗</div>
-
-    <button id="nextBtn" onclick="location.href='/music'">Next ➜</button>
+    <div class="message" id="message">I love you vavae 💗</div>
+    <a href="/choice" class="next-btn" id="nextBtn">Next</a>
 </div>
 
 <script>
-    let count = 15;
+let taps = 15;
 
-    function tapGift(){
-        if(count > 0){
-            count--;
-            document.getElementById("counter").innerText = "Taps remaining: " + count;
-        }
-
-        if(count === 0){
-            document.getElementById("message").style.display = "block";
-            document.getElementById("nextBtn").style.display = "inline-block";
-        }
+function tapGift() {
+    if (taps > 0) {
+        taps--;
+        document.getElementById("count").innerText = 
+            taps > 0 ? "Tap the gift " + taps + " more times" : "";
     }
+
+    if (taps === 0) {
+        document.getElementById("message").style.display = "block";
+        document.getElementById("nextBtn").style.display = "inline-block";
+    }
+}
 </script>
 
 </body>
