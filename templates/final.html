@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Valentine's Day</title>
+    <style>
+        body {
+            text-align:center;
+            background:#ffccd5;
+            color:#8b0000;
+            font-family:Arial;
+            overflow:hidden;
+        }
+
+        h1 {
+            margin-top:20px;
+        }
+
+        #scene {
+            position:relative;
+            height:400px;
+            margin-top:40px;
+        }
+
+        .boy, .girl {
+            position:absolute;
+            bottom:50px;
+            font-size:90px;
+            transition:all 2s ease;
+        }
+
+        .boy {
+            left:5%;
+        }
+
+        .girl {
+            right:5%;
+        }
+
+        #message {
+            font-size:28px;
+            margin-top:20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Happy Valentine's Day Darling ❤️</h1>
+
+<div id="scene">
+    <div id="boy" class="boy">🧑‍🎓🌹</div>
+    <div id="girl" class="girl">👩‍🎓</div>
+</div>
+
+<div id="message">16th July 2025</div>
+
+<script>
+    const boy = document.getElementById("boy");
+    const girl = document.getElementById("girl");
+    const message = document.getElementById("message");
+
+    // Step 1: Walk toward each other
+    setTimeout(() => {
+        boy.style.left = "40%";
+        girl.style.right = "40%";
+        message.innerText = "16th July 2025";
+    }, 1000);
+
+    // Step 2: Boy kneels and gives rose
+    setTimeout(() => {
+        boy.innerText = "🧎‍♂️🌹";
+        message.innerText = "I love you darling";
+    }, 4000);
+
+    // Step 3: Girl accepts with heart hands
+    setTimeout(() => {
+        girl.innerText = "🫶";
+    }, 6500);
+
+    // Step 4: Hugging together
+    setTimeout(() => {
+        boy.innerText = "🧑‍🤝‍🧑";
+        girl.style.display = "none";
+        message.innerText = "My valentine baby ❤️";
+    }, 9000);
+</script>
+
+</body>
+</html>
