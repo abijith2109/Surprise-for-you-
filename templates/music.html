@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music for You</title>
+    <style>
+        body {
+            background: pink;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #b3003c;
+            margin-bottom: 30px;
+        }
+
+        .symbols {
+            font-size: 50px;
+            animation: float 3s infinite alternate;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-20px); }
+        }
+
+        .next-btn {
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Listen to Our Song 🎵</h1>
+
+<div class="symbols">🎵 💖 🎶</div>
+
+<audio controls autoplay>
+    <source src="{{ url_for('static', filename='song.mp3') }}" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
+
+<a href="/final" class="next-btn">Next</a>
+
+</body>
+</html>
