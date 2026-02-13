@@ -2,42 +2,40 @@
 <html>
 <head>
     <title>Happy Valentine's Day</title>
+
+    <!-- Lottie animation library -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <style>
         body {
             text-align:center;
             background:#ffccd5;
             color:#8b0000;
-            font-family:Arial;
+            font-family:Arial, sans-serif;
+            margin:0;
             overflow:hidden;
         }
 
         h1 {
             margin-top:20px;
+            font-size:40px;
         }
 
         #scene {
-            position:relative;
+            display:flex;
+            justify-content:center;
+            align-items:center;
             height:400px;
+            gap:120px;
             margin-top:40px;
         }
 
-        .boy, .girl {
-            position:absolute;
-            bottom:50px;
-            font-size:90px;
-            transition:all 2s ease;
-        }
-
-        .boy {
-            left:5%;
-        }
-
-        .girl {
-            right:5%;
+        .character {
+            width:220px;
         }
 
         #message {
-            font-size:28px;
+            font-size:32px;
             margin-top:20px;
             font-weight:bold;
         }
@@ -48,41 +46,59 @@
 <h1>Happy Valentine's Day Darling ❤️</h1>
 
 <div id="scene">
-    <div id="boy" class="boy">🧑‍🎓🌹</div>
-    <div id="girl" class="girl">👩‍🎓</div>
+    <!-- Boy character -->
+    <lottie-player
+        id="boy"
+        class="character"
+        src="https://assets2.lottiefiles.com/packages/lf20_49rdyysj.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay>
+    </lottie-player>
+
+    <!-- Girl character -->
+    <lottie-player
+        id="girl"
+        class="character"
+        src="https://assets2.lottiefiles.com/packages/lf20_5ngs2ksb.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay>
+    </lottie-player>
 </div>
 
 <div id="message">16th July 2025</div>
 
 <script>
-    const boy = document.getElementById("boy");
-    const girl = document.getElementById("girl");
     const message = document.getElementById("message");
+    const scene = document.getElementById("scene");
 
-    // Step 1: Walk toward each other
+    // Step 1: Show meeting date
     setTimeout(() => {
-        boy.style.left = "40%";
-        girl.style.right = "40%";
         message.innerText = "16th July 2025";
     }, 1000);
 
-    // Step 2: Boy kneels and gives rose
+    // Step 2: Boy proposes
     setTimeout(() => {
-        boy.innerText = "🧎‍♂️🌹";
         message.innerText = "I love you darling";
     }, 4000);
 
-    // Step 3: Girl accepts with heart hands
+    // Step 3: Hug animation
     setTimeout(() => {
-        girl.innerText = "🫶";
-    }, 6500);
-
-    // Step 4: Hugging together
-    setTimeout(() => {
-        boy.innerText = "🧑‍🤝‍🧑";
-        girl.style.display = "none";
+        scene.innerHTML = `
+            <lottie-player
+                src="https://assets9.lottiefiles.com/packages/lf20_sSF6EG.json"
+                background="transparent"
+                speed="1"
+                style="width:320px"
+                loop
+                autoplay>
+            </lottie-player>
+        `;
         message.innerText = "My valentine baby ❤️";
-    }, 9000);
+    }, 8000);
 </script>
 
 </body>
