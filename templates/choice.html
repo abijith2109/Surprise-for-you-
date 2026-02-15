@@ -11,26 +11,28 @@
             height: 100vh;
             font-family: Arial;
             text-align: center;
+            margin: 0;
         }
 
         .box {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
+            padding: 60px;
+            border-radius: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 5em;
             color: #c2185b;
+            margin-bottom: 40px;
         }
 
         button {
-            font-size: 1.5em;
-            padding: 15px 30px;
-            margin: 15px;
+            font-size: 3em;
+            padding: 25px 60px;
+            margin: 20px;
             border: none;
-            border-radius: 12px;
+            border-radius: 20px;
             cursor: pointer;
             background: #ff4081;
             color: white;
@@ -47,15 +49,11 @@
 
 <script>
 function goHug() {
-    setTimeout(() => {
-        window.location.href = "/hug";
-    }, 1000);
+    window.location.href = "/hug";
 }
 
 function goKiss() {
-    setTimeout(() => {
-        window.location.href = "/kiss";
-    }, 1000);
+    window.location.href = "/kiss";
 }
 </script>
 
