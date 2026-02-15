@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine Question</title>
+    <style>
+        body {
+            background: pink;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #b3003c;
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #ff4081;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>Can you be my Valentine? 💖</h1>
+    <button onclick="goYes()">Yes</button>
+    <button onclick="moveNo(this)">No</button>
+</div>
+
+<script>
+function goYes() {
+    window.location.href = "/letter";
+}
+
+function moveNo(btn) {
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * 80 + "%";
+    btn.style.left = Math.random() * 80 + "%";
+}
+</script>
+
+</body>
+</html>
